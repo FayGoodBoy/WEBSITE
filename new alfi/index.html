@@ -1,0 +1,2682 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You, My Love 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   ROMANTIC ANNIVERSARY WEBSITE
+========================================================= */
+
+:root{
+    --wine:#260015;
+    --deep:#3c0028;
+    --pink:#ff4f9a;
+    --rose:#ff7db7;
+    --light:#fff7fb;
+    --cream:#fff7e8;
+    --gold:#e8c56a;
+    --shadow:rgba(0,0,0,.4);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:"Playfair Display",serif;
+    background:var(--wine);
+    color:white;
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.app{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at 15% 20%,rgba(255,94,160,.22),transparent 22%),
+        radial-gradient(circle at 85% 15%,rgba(255,180,220,.16),transparent 20%),
+        radial-gradient(circle at 50% 90%,rgba(255,0,170,.18),transparent 35%),
+        linear-gradient(
+            125deg,
+            #16000d,
+            #390021 30%,
+            #76004f 65%,
+            #d40089
+        );
+}
+
+.app::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 45%,
+            rgba(0,0,0,.48)
+        );
+}
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.stars{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+
+    background-image:
+        radial-gradient(circle,#fff 0 1px,transparent 2px),
+        radial-gradient(circle,#ffd3eb 0 1px,transparent 2px),
+        radial-gradient(circle,#fff 0 .7px,transparent 1.5px);
+
+    background-size:
+        85px 85px,
+        130px 130px,
+        55px 55px;
+
+    animation:starMove 15s linear infinite;
+    opacity:.65;
+}
+
+@keyframes starMove{
+    from{
+        background-position:0 0,0 0,0 0;
+    }
+
+    to{
+        background-position:
+            100px 150px,
+            -120px 200px,
+            80px -100px;
+    }
+}
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.floating-heart{
+    position:absolute;
+    color:#ffb4d5;
+    font-size:25px;
+    opacity:.7;
+    pointer-events:none;
+    animation:heartFloat 6s ease-in-out infinite;
+    z-index:2;
+}
+
+@keyframes heartFloat{
+
+    0%,100%{
+        transform:translateY(0) rotate(-5deg);
+    }
+
+    50%{
+        transform:translateY(-30px) rotate(8deg);
+    }
+}
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:30px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:scale(.96);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        visibility .8s;
+
+    z-index:5;
+}
+
+.page.active{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1);
+}
+
+.page-inner{
+    position:relative;
+    width:min(1100px,100%);
+    height:min(700px,90vh);
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.script{
+    font-family:"Allura",cursive;
+}
+
+.title{
+    font-size:clamp(55px,9vw,115px);
+    font-weight:400;
+    text-align:center;
+
+    text-shadow:
+        0 3px 3px #4b0034,
+        0 0 25px rgba(255,255,255,.35);
+}
+
+.subtitle{
+    text-align:center;
+    font-family:"DM Sans",sans-serif;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-size:12px;
+    opacity:.75;
+}
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope-area{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.envelope{
+    position:relative;
+
+    width:min(410px,80vw);
+    height:260px;
+
+    background:#fff8e8;
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.45),
+        0 0 35px rgba(255,102,180,.25);
+
+    cursor:pointer;
+
+    transition:.4s;
+}
+
+.envelope:hover{
+    transform:scale(1.035);
+}
+
+.envelope-body{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            145deg,
+            transparent 49%,
+            #d4c5ad 50%,
+            transparent 51%
+        ),
+        linear-gradient(
+            35deg,
+            transparent 49%,
+            #d4c5ad 50%,
+            transparent 51%
+        );
+}
+
+.flap{
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:62%;
+
+    background:linear-gradient(
+        145deg,
+        #fffdf6,
+        #eadfc9
+    );
+
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+
+    transform-origin:top;
+
+    transition:transform .9s ease;
+
+    z-index:4;
+}
+
+.seal{
+    position:absolute;
+
+    left:50%;
+    top:62%;
+
+    transform:translate(-50%,-50%);
+
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 20%,
+            #ff8dd0,
+            #b6007b 45%,
+            #520038
+        );
+
+    border:3px solid #ffacd9;
+
+    box-shadow:
+        0 0 25px #ff39a9,
+        inset 0 0 0 3px #650044;
+
+    z-index:8;
+
+    transition:.5s;
+}
+
+.seal::after{
+    content:"♥";
+
+    position:absolute;
+    inset:0;
+
+    display:grid;
+    place-items:center;
+
+    font-size:27px;
+    color:white;
+}
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
+
+.envelope.open .seal{
+    opacity:0;
+    transform:
+        translate(-50%,-100%)
+        scale(.3);
+}
+
+.tap{
+    margin-top:35px;
+
+    font-size:25px;
+
+    animation:pulseText 2s infinite;
+}
+
+@keyframes pulseText{
+    50%{
+        opacity:.5;
+        transform:scale(.97);
+    }
+}
+
+/* =========================================================
+   PAPER
+========================================================= */
+
+.paper{
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf3,
+            #f6e8c7
+        );
+
+    color:#55002f;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.4);
+
+    position:relative;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.intro-card{
+    width:min(390px,85vw);
+    padding:50px 35px;
+
+    text-align:center;
+
+    transform:rotate(-2deg);
+
+    clip-path:polygon(
+        0 2%,5% 0,10% 2%,17% 0,
+        25% 2%,33% 0,42% 2%,50% 0,
+        60% 2%,70% 0,80% 2%,90% 0,
+        100% 2%,98% 100%,90% 98%,
+        80% 100%,70% 98%,60% 100%,
+        50% 98%,40% 100%,30% 98%,
+        20% 100%,10% 98%,0 100%
+    );
+}
+
+.intro-card h1{
+    font-size:75px;
+    color:#a00067;
+    line-height:.8;
+}
+
+.intro-card .date{
+    margin-top:25px;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-weight:700;
+    letter-spacing:4px;
+
+    color:#a00067;
+}
+
+.intro-message{
+    margin-top:25px;
+    line-height:1.7;
+    font-size:15px;
+}
+
+.photo{
+    position:absolute;
+
+    width:145px;
+    height:175px;
+
+    background:white;
+    padding:8px 8px 28px;
+
+    box-shadow:
+        0 10px 18px rgba(0,0,0,.4);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.photo-left{
+    left:5%;
+    bottom:8%;
+    transform:rotate(-12deg);
+}
+
+.photo-right{
+    right:5%;
+    top:8%;
+    transform:rotate(10deg);
+}
+
+.rose{
+    position:absolute;
+    font-size:50px;
+    animation:floatRose 4s ease-in-out infinite;
+}
+
+.rose.one{
+    left:23%;
+    top:20%;
+}
+
+.rose.two{
+    right:24%;
+    bottom:20%;
+}
+
+@keyframes floatRose{
+    50%{
+        transform:translateY(-15px) rotate(5deg);
+    }
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.romantic-button{
+    position:absolute;
+
+    bottom:15px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:none;
+    border:0;
+
+    color:rgb(5, 5, 5);
+
+    font-family:"Playfair Display",serif;
+    font-style:italic;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    padding:10px 20px;
+
+    transition:.3s;
+}
+
+.romantic-button::after{
+    content:"";
+
+    position:absolute;
+    bottom:2px;
+    left:50%;
+
+    width:0;
+    height:1px;
+
+    background:white;
+
+    transform:translateX(-50%);
+
+    transition:.4s;
+}
+
+.romantic-button:hover::after{
+    width:80%;
+}
+
+/* =========================================================
+   CHOICES
+========================================================= */
+
+.choice-page{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.choice-title{
+    margin-bottom:70px;
+}
+
+.choices{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:45px;
+
+    width:min(900px,100%);
+}
+
+.choice{
+    background:none;
+    border:0;
+
+    color:white;
+
+    cursor:pointer;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:12px;
+
+    transition:.35s;
+}
+
+.choice:hover{
+    transform:translateY(-12px) scale(1.06);
+}
+
+.choice-icon{
+    width:110px;
+    height:110px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.15),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:
+        0 0 30px rgba(255,95,165,.25);
+
+    font-size:50px;
+}
+
+.choice-label{
+    font-size:30px;
+}
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back{
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    border:1px solid rgba(255,255,255,.4);
+
+    background:rgba(255,255,255,.1);
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    z-index:30;
+
+    transition:.3s;
+}
+
+.back:hover{
+    background:rgba(255,255,255,.2);
+}
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.journey{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.journey-title{
+    position:absolute;
+
+    top:15px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:70px;
+
+    z-index:20;
+}
+
+.journey-photo{
+    position:absolute;
+
+    width:175px;
+    height:210px;
+
+    background:#fff;
+
+    padding:8px 8px 32px;
+
+    box-shadow:
+        0 15px 25px rgba(0,0,0,.45);
+
+    transition:.5s;
+
+    cursor:pointer;
+}
+
+.journey-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.journey-photo:hover{
+    z-index:50;
+    transform:
+        scale(1.18)
+        rotate(0deg)!important;
+}
+
+.j1{left:5%;top:15%;transform:rotate(-8deg)}
+.j2{left:25%;top:13%;transform:rotate(5deg)}
+.j3{left:45%;top:15%;transform:rotate(-3deg)}
+.j4{right:7%;top:13%;transform:rotate(8deg)}
+.j5{left:12%;bottom:4%;transform:rotate(7deg)}
+.j6{left:35%;bottom:3%;transform:rotate(-5deg)}
+.j7{right:18%;bottom:4%;transform:rotate(6deg)}
+
+.journey-note {
+    position: absolute;
+
+    left: 50%;
+    bottom: 2%;
+
+    transform: translateX(-50%);
+
+    font-family: "Allura", cursive;
+
+    font-size: 28px;
+
+    color: #ff6cdf;
+
+    text-shadow:
+        0 2px 3px rgba(0, 0, 0, 0.8),
+        0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   MOMENT / LOVE LETTER
+========================================================= */
+
+.moment{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.moment-title{
+    position:absolute;
+
+    top:5%;
+    left:7%;
+
+    font-size:75px;
+}
+
+.letter{
+    position:absolute;
+
+    left:22%;
+    top:20%;
+
+    width:min(500px,55vw);
+
+    padding:45px;
+
+    transform:rotate(-4deg);
+
+    font-size:17px;
+
+    line-height:1.8;
+}
+
+.letter::before{
+    content:"";
+
+    position:absolute;
+    inset:12px;
+
+    border:1px solid rgba(100,0,50,.2);
+
+    pointer-events:none;
+}
+
+.letter h2{
+    font-family:"Allura",cursive;
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.letter p{
+    white-space:pre-line;
+}
+
+.moment-photo{
+    position:absolute;
+
+    right:8%;
+    top:20%;
+
+    width:220px;
+    height:260px;
+
+    padding:12px;
+
+    background:#8b5b13;
+
+    border:8px ridge #d6a84e;
+
+    box-shadow:
+        0 15px 25px rgba(0,0,0,.5);
+
+    transform:rotate(7deg);
+}
+
+.moment-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.music-button{
+    position:absolute;
+
+    left:50%;
+    bottom:2%;
+
+    transform:translateX(-50%);
+
+    background:none;
+    border:0;
+
+    color:white;
+
+    cursor:pointer;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.vinyl{
+    width:80px;
+    height:80px;
+
+    border-radius:50%;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            #111 0 3px,
+            #292929 4px 6px
+        );
+
+    display:grid;
+    place-items:center;
+
+    box-shadow:
+        0 0 25px rgba(255,190,120,.4);
+}
+
+.vinyl::after{
+    content:"▶";
+
+    display:grid;
+    place-items:center;
+
+    width:30px;
+    height:30px;
+
+    border-radius:50%;
+
+    background:#e82f5b;
+}
+
+.music-button.playing .vinyl{
+    animation:spin 3s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =========================================================
+   PLAYLIST
+========================================================= */
+
+.playlist{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.player{
+    position:absolute;
+
+    left:4%;
+    top:20%;
+
+    width:min(580px,58vw);
+
+    background:#180014;
+
+    border:3px solid #080008;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.5);
+}
+
+.player-header{
+    padding:12px 15px;
+
+    font-family:"DM Sans",sans-serif;
+
+    background:#090008;
+
+    font-size:13px;
+}
+
+.album{
+    height:320px;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #ff8cc8,
+            #a30070 40%,
+            #340020
+        );
+}
+
+.album-title{
+    font-family:"Allura",cursive;
+    font-size:80px;
+}
+
+.album-subtitle{
+    font-family:"DM Sans",sans-serif;
+    letter-spacing:3px;
+    font-size:11px;
+}
+
+.play-button{
+    margin-top:25px;
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    border:0;
+
+    background:#f52d58;
+    color:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.4);
+}
+
+.playlist-photo{
+    position:absolute;
+
+    width:145px;
+    height:170px;
+
+    background:white;
+
+    padding:8px 8px 25px;
+
+    box-shadow:0 12px 20px rgba(0,0,0,.45);
+}
+
+.playlist-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.pp1{
+    right:19%;
+    top:8%;
+    transform:rotate(7deg);
+}
+
+.pp2{
+    right:4%;
+    top:35%;
+    transform:rotate(-7deg);
+}
+
+.pp3{
+    right:23%;
+    bottom:3%;
+    transform:rotate(4deg);
+}
+
+/* =========================================================
+   GIFT
+========================================================= */
+
+.gift{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.gift-message{
+    position:absolute;
+
+    width:min(520px,90vw);
+
+    padding:45px;
+
+    text-align:center;
+
+    opacity:0;
+    transform:scale(.7);
+
+    pointer-events:none;
+
+    transition:.8s;
+
+    z-index:20;
+}
+
+.gift.revealed .gift-message{
+    opacity:1;
+    transform:scale(1);
+}
+
+.gift.revealed .gift-envelope{
+    opacity:.1;
+    transform:translateY(150px) scale(.7);
+}
+
+.gift-message h2{
+    font-family:"Allura",cursive;
+    font-size:60px;
+
+    color:#a00067;
+
+    margin-bottom:20px;
+}
+
+.gift-message p{
+    font-size:17px;
+    line-height:1.8;
+}
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+.confetti{
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:30;
+}
+
+.confetti span{
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    background:#fff;
+
+    animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+
+    from{
+        transform:
+            translateY(-30px)
+            rotate(0);
+    }
+
+    to{
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+/* =========================================================
+   HEART BURST
+========================================================= */
+
+.burst{
+    position:fixed;
+
+    pointer-events:none;
+
+    font-size:22px;
+
+    z-index:999;
+
+    animation:burst 1s ease-out forwards;
+}
+
+@keyframes burst{
+
+    0%{
+        opacity:1;
+        transform:
+            translate(-50%,-50%)
+            scale(.4);
+    }
+
+    100%{
+        opacity:0;
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.5);
+    }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:750px){
+
+    .page{
+        padding:15px;
+    }
+
+    .page-inner{
+        height:94vh;
+    }
+
+    .title{
+        font-size:65px;
+    }
+
+    .photo{
+        display:none;
+    }
+
+    .choices{
+        grid-template-columns:repeat(2,1fr);
+        gap:25px;
+    }
+
+    .choice-icon{
+        width:85px;
+        height:85px;
+        font-size:38px;
+    }
+
+    .choice-label{
+        font-size:25px;
+    }
+
+    .journey-title{
+        font-size:50px;
+        top:4%;
+    }
+
+    .journey-photo{
+        width:110px;
+        height:135px;
+        padding:5px 5px 20px;
+    }
+
+    .j1{left:2%;top:17%}
+    .j2{left:30%;top:16%}
+    .j3{right:3%;left:auto;top:18%}
+    .j4{left:15%;right:auto;top:43%}
+    .j5{right:4%;left:auto;top:43%}
+    .j6{left:18%;bottom:8%}
+    .j7{right:20%;bottom:7%}
+
+    .moment-title{
+        font-size:55px;
+        top:5%;
+        left:4%;
+    }
+
+    .letter{
+        left:7%;
+        top:23%;
+        width:75%;
+        padding:25px;
+        font-size:12px;
+        line-height:1.6;
+    }
+
+    .letter h2{
+        font-size:35px;
+    }
+
+    .moment-photo{
+        width:110px;
+        height:140px;
+        right:0;
+        top:22%;
+    }
+
+    .player{
+        left:0;
+        top:20%;
+        width:68%;
+    }
+
+    .album{
+        height:230px;
+    }
+
+    .album-title{
+        font-size:48px;
+    }
+
+    .playlist-photo{
+        width:95px;
+        height:120px;
+    }
+
+    .pp1{
+        right:3%;
+        top:10%;
+    }
+
+    .pp2{
+        right:1%;
+        top:45%;
+    }
+
+    .pp3{
+        display:none;
+    }
+
+    .gift-message{
+        padding:30px 25px;
+    }
+
+    .gift-message h2{
+        font-size:45px;
+    }
+
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        transition:none!important;
+    }
+
+}
+
+</style>
+
+<style id="wow-premium-css">
+/* =========================================================
+   WOW PREMIUM ROMANTIC LAYER
+   ========================================================= */
+:root{
+  --wow-pink:#ff6fae;
+  --wow-rose:#ff9bc9;
+  --wow-purple:#9f7aea;
+  --wow-blue:#77c7ff;
+  --wow-gold:#ffe0a8;
+  --wow-bg:#070312;
+  --wow-glass:rgba(255,255,255,.075);
+  --wow-line:rgba(255,190,220,.22);
+}
+
+html{scroll-behavior:smooth}
+body{
+  cursor:none;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 20%,rgba(255,92,166,.10),transparent 34%),
+    radial-gradient(circle at 20% 80%,rgba(108,75,255,.10),transparent 35%),
+    #070312;
+}
+button,a,[data-go],.photo-card,.envelope,.music-btn{cursor:none}
+
+/* Cinematic opening */
+.wow-cinema{
+  position:fixed;inset:0;z-index:99999;
+  display:grid;place-items:center;
+  background:#030108;
+  overflow:hidden;
+  transition:opacity 1.4s ease,visibility 1.4s ease;
+}
+.wow-cinema.hide{opacity:0;visibility:hidden;pointer-events:none}
+.wow-cinema::before{
+  content:"";position:absolute;inset:-30%;
+  background:
+    radial-gradient(ellipse at 50% 48%,rgba(255,90,160,.18),transparent 25%),
+    radial-gradient(ellipse at 35% 60%,rgba(125,75,255,.16),transparent 24%),
+    radial-gradient(ellipse at 70% 35%,rgba(75,190,255,.12),transparent 23%);
+  filter:blur(45px);
+  animation:wowAurora 8s ease-in-out infinite alternate;
+}
+.wow-cinema-inner{text-align:center;position:relative;z-index:2;padding:28px}
+.wow-eyebrow{
+  letter-spacing:.45em;text-transform:uppercase;font-size:10px;
+  color:rgba(255,220,235,.7);animation:wowFadeUp 1.2s .4s both;
+}
+.wow-cinema-title{
+  margin:18px 0 8px;font-family:"Allura",cursive;
+  font-size:clamp(64px,12vw,150px);font-weight:400;
+  line-height:.8;color:#fff;
+  text-shadow:0 0 12px rgba(255,135,190,.8),0 0 60px rgba(255,50,150,.45);
+  animation:wowTitle 2.2s .7s both;
+}
+.wow-cinema-sub{
+  color:rgba(255,255,255,.68);font-size:13px;letter-spacing:.18em;
+  animation:wowFadeUp 1.2s 1.2s both;
+}
+.wow-cinema-heart{
+  width:72px;height:72px;margin:34px auto 0;position:relative;
+  transform:rotate(-45deg);
+  background:linear-gradient(135deg,#fff,#ff76b6 65%,#b65cff);
+  box-shadow:0 0 30px #ff65ad,0 0 90px rgba(255,70,160,.55);
+  animation:wowHeart 1.8s 1.4s infinite ease-in-out;
+}
+.wow-cinema-heart:before,.wow-cinema-heart:after{
+  content:"";position:absolute;width:72px;height:72px;border-radius:50%;
+  background:inherit;
+}
+.wow-cinema-heart:before{top:-36px;left:0}
+.wow-cinema-heart:after{left:36px;top:0}
+.wow-enter{
+  margin-top:48px;border:1px solid rgba(255,180,220,.45);
+  background:rgba(255,255,255,.05);color:#fff;padding:13px 25px;
+  border-radius:999px;letter-spacing:.18em;text-transform:uppercase;
+  font-size:10px;backdrop-filter:blur(15px);
+  box-shadow:0 10px 40px rgba(0,0,0,.3),inset 0 0 30px rgba(255,120,180,.05);
+  animation:wowFadeUp 1.2s 1.7s both,wowPulse 2.6s 3s infinite;
+}
+
+/* Aurora */
+.wow-aurora{
+  position:fixed;inset:-20%;z-index:-1;pointer-events:none;opacity:.7;
+  filter:blur(45px) saturate(130%);
+  background:
+    radial-gradient(ellipse at 15% 35%,rgba(255,65,165,.18),transparent 25%),
+    radial-gradient(ellipse at 75% 25%,rgba(83,144,255,.17),transparent 28%),
+    radial-gradient(ellipse at 50% 80%,rgba(164,75,255,.15),transparent 30%);
+  animation:wowAurora 13s ease-in-out infinite alternate;
+}
+
+/* Petal rain */
+.wow-petals{position:fixed;inset:0;z-index:15;pointer-events:none;overflow:hidden}
+.wow-petal{
+  position:absolute;top:-10vh;width:11px;height:16px;
+  border-radius:70% 30% 70% 30%;opacity:.65;
+  background:linear-gradient(135deg,#fff,#ff83bb 55%,#d54cff);
+  box-shadow:0 0 10px rgba(255,115,190,.35);
+  animation:wowFall linear infinite;
+}
+
+/* Heart cursor */
+.wow-cursor,.wow-cursor-dot{
+  position:fixed;pointer-events:none;z-index:100000;transform:translate(-50%,-50%);
+}
+.wow-cursor{
+  width:24px;height:24px;filter:drop-shadow(0 0 8px rgba(255,105,180,.8));
+}
+.wow-cursor::before{
+  content:"♥";font-size:24px;color:#ff78b7;
+  text-shadow:0 0 10px #ff4fa3,0 0 25px rgba(255,60,160,.6);
+}
+.wow-cursor-dot{
+  width:5px;height:5px;border-radius:50%;background:#fff;
+  box-shadow:0 0 8px #fff,0 0 18px #ff70b5;
+}
+.wow-trail-heart{
+  position:fixed;pointer-events:none;z-index:99998;color:#ff76b4;
+  font-size:12px;animation:wowTrail .9s ease-out forwards;
+}
+
+/* Cinematic scroll timeline */
+.wow-timeline{
+  position:relative;margin:40px auto 70px;max-width:1100px;padding:20px 20px 50px;
+}
+.wow-timeline::before{
+  content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:linear-gradient(transparent,#ff8fbd,#a76cff,transparent);
+  box-shadow:0 0 18px rgba(255,100,180,.65);
+}
+.wow-event{
+  width:50%;padding:20px 46px;position:relative;perspective:900px;
+}
+.wow-event:nth-child(odd){margin-right:auto;text-align:right}
+.wow-event:nth-child(even){margin-left:auto;text-align:left}
+.wow-event::after{
+  content:"♥";position:absolute;top:35px;color:#ff84bb;font-size:15px;
+  text-shadow:0 0 15px #ff4fa3;
+}
+.wow-event:nth-child(odd)::after{right:-8px}
+.wow-event:nth-child(even)::after{left:-8px}
+.wow-event-card{
+  display:inline-block;max-width:430px;padding:18px;border-radius:22px;
+  background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+  border:1px solid var(--wow-line);backdrop-filter:blur(16px);
+  box-shadow:0 18px 55px rgba(0,0,0,.25);
+  transform-style:preserve-3d;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s;
+}
+.wow-event-card:hover{
+  transform:rotateX(4deg) rotateY(-5deg) translateY(-8px);
+  box-shadow:0 25px 70px rgba(255,75,165,.16);
+}
+.wow-event-card img{
+  width:min(100%,380px);aspect-ratio:16/10;object-fit:cover;border-radius:15px;
+  display:block;box-shadow:0 12px 35px rgba(0,0,0,.35);
+}
+.wow-event-date{font-size:10px;letter-spacing:.22em;color:#ff9fca;margin:12px 0 6px}
+.wow-event-title{font-family:"Allura",cursive;font-size:30px;color:#fff}
+.wow-event-copy{font-size:12px;color:rgba(255,255,255,.68);line-height:1.7;margin-top:4px}
+
+/* 3D photo stage */
+.wow-photo-stage{perspective:1100px;margin:35px auto;max-width:820px}
+.wow-photo-3d{
+  position:relative;transform-style:preserve-3d;
+  transition:transform .12s ease-out;
+}
+.wow-photo-3d img{
+  width:100%;display:block;border-radius:24px;
+  border:1px solid rgba(255,200,230,.3);
+  box-shadow:0 35px 90px rgba(0,0,0,.45),0 0 45px rgba(255,90,170,.12);
+}
+.wow-photo-3d::after{
+  content:"";position:absolute;inset:0;border-radius:24px;
+  background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.25) 48%,transparent 62%);
+  transform:translateX(-130%);transition:transform .9s ease;pointer-events:none;
+}
+.wow-photo-3d:hover::after{transform:translateX(130%)}
+
+/* Dramatic ending */
+.wow-ending{
+  min-height:100vh;display:grid;place-items:center;text-align:center;
+  position:relative;overflow:hidden;background:#020107;
+}
+.wow-ending::before{
+  content:"";position:absolute;width:65vw;height:65vw;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,65,160,.20),transparent 65%);
+  filter:blur(20px);animation:wowEndingGlow 5s infinite alternate;
+}
+.wow-ending-inner{position:relative;z-index:2;padding:30px}
+.wow-ending-small{font-size:11px;letter-spacing:.5em;color:rgba(255,255,255,.6)}
+.wow-ending-title{
+  font-family:"Allura",cursive;font-weight:400;
+  font-size:clamp(80px,16vw,210px);line-height:.72;margin:28px 0;
+  color:#fff;text-shadow:0 0 12px #fff,0 0 45px #ff65ad,0 0 110px rgba(255,30,140,.75);
+  animation:wowILoveYou 3.5s ease both;
+}
+.wow-ending-line{
+  width:160px;height:1px;margin:0 auto 25px;
+  background:linear-gradient(90deg,transparent,#ff92c4,transparent);
+  box-shadow:0 0 15px #ff72b4;
+}
+.wow-ending-copy{
+  max-width:570px;margin:auto;color:rgba(255,255,255,.72);
+  line-height:1.9;font-size:13px;
+}
+.wow-replay{
+  margin-top:34px;padding:12px 22px;border:1px solid rgba(255,160,205,.35);
+  border-radius:999px;background:rgba(255,255,255,.04);color:#fff;
+  letter-spacing:.15em;font-size:10px;text-transform:uppercase;
+}
+
+/* Page reveal / utility */
+.wow-section-title{
+  text-align:center;margin:25px 0 10px;font-family:"Allura",cursive;
+  font-size:clamp(45px,8vw,80px);color:#fff;
+  text-shadow:0 0 25px rgba(255,95,170,.35);
+}
+.wow-scroll-hint{text-align:center;color:rgba(255,255,255,.5);font-size:10px;letter-spacing:.22em}
+.wow-progress{
+  position:fixed;left:0;top:0;height:2px;width:0;z-index:100001;
+  background:linear-gradient(90deg,#ff5fa8,#9d6cff,#7ed8ff);
+  box-shadow:0 0 15px #ff6eaf;transition:width .15s linear;
+}
+.wow-spark{
+  position:fixed;pointer-events:none;z-index:99997;width:3px;height:3px;border-radius:50%;
+  background:#fff;box-shadow:0 0 8px #fff,0 0 15px #ff75b7;
+  animation:wowSpark .8s ease-out forwards;
+}
+
+@keyframes wowAurora{0%{transform:translate3d(-4%,2%,0) scale(1) rotate(0deg)}50%{transform:translate3d(4%,-3%,0) scale(1.08) rotate(3deg)}100%{transform:translate3d(-2%,4%,0) scale(1.02) rotate(-2deg)}}
+@keyframes wowFadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+@keyframes wowTitle{from{opacity:0;transform:scale(.65);filter:blur(18px)}to{opacity:1;transform:scale(1);filter:blur(0)}}
+@keyframes wowHeart{0%,100%{transform:rotate(-45deg) scale(.8)}50%{transform:rotate(-45deg) scale(1.05)}}
+@keyframes wowPulse{50%{box-shadow:0 0 30px #ff65ad,0 0 80px rgba(255,70,160,.3)}}
+@keyframes wowFall{0%{transform:translate3d(0,-10vh,0) rotate(0)}50%{transform:translate3d(45px,50vh,0) rotate(180deg)}100%{transform:translate3d(-45px,110vh,0) rotate(360deg)}}
+@keyframes wowTrail{to{opacity:0;transform:translate(-50%,-90px) scale(.25) rotate(20deg)}}
+@keyframes wowSpark{to{opacity:0;transform:translateY(-30px) scale(0)}}
+@keyframes wowEndingGlow{from{transform:scale(.8);opacity:.5}to{transform:scale(1.15);opacity:1}}
+@keyframes wowILoveYou{0%{opacity:0;transform:scale(1.8);filter:blur(25px)}35%{opacity:1}70%{transform:scale(.98)}100%{transform:scale(1);filter:blur(0)}}
+
+@media(max-width:700px){
+  body{cursor:auto}
+  .wow-cursor,.wow-cursor-dot{display:none}
+  .wow-timeline::before{left:15px}
+  .wow-event,.wow-event:nth-child(odd),.wow-event:nth-child(even){
+    width:100%;margin:0;text-align:left;padding:18px 0 18px 40px;
+  }
+  .wow-event:nth-child(odd)::after,.wow-event:nth-child(even)::after{left:8px;right:auto}
+  .wow-event-card{max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- WOW PREMIUM OVERLAYS -->
+<div class="wow-progress" id="wowProgress"></div>
+<div class="wow-aurora" aria-hidden="true"></div>
+<div class="wow-petals" id="wowPetals" aria-hidden="true"></div>
+<div class="wow-cursor" id="wowCursor" aria-hidden="true"></div>
+<div class="wow-cursor-dot" id="wowCursorDot" aria-hidden="true"></div>
+
+<div class="wow-cinema" id="wowCinema">
+  <div class="wow-cinema-inner">
+    <div class="wow-eyebrow">A little story about us</div>
+    <div class="wow-cinema-title">For You</div>
+    <div class="wow-cinema-sub">one love • countless memories • forever</div>
+    <div class="wow-cinema-heart" aria-hidden="true"></div>
+    <button class="wow-enter" id="wowEnter">Begin our story ♥</button>
+  </div>
+</div>
+
+
+<main class="app">
+
+<div class="stars"></div>
+
+<span class="floating-heart" style="left:10%;top:18%">♡</span>
+<span class="floating-heart" style="right:15%;top:30%;animation-delay:1s">♥</span>
+<span class="floating-heart" style="left:20%;bottom:18%;animation-delay:2s">♡</span>
+<span class="floating-heart" style="right:10%;bottom:20%;animation-delay:3s">♥</span>
+
+
+<!-- =====================================================
+PAGE 1
+===================================================== -->
+
+<section class="page active" id="page1">
+
+<div class="page-inner envelope-area">
+
+<h1 class="title script">
+    For You
+</h1>
+
+<p class="subtitle">
+    a little surprise from someone who loves you
+</p>
+
+<div
+    class="envelope"
+    id="openingEnvelope"
+>
+
+    <div class="envelope-body"></div>
+
+    <div class="flap"></div>
+
+    <div class="seal"></div>
+
+</div>
+
+<div class="tap script">
+    tap the envelope ♡
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 2
+===================================================== -->
+
+<section class="page" id="page2">
+
+<div class="page-inner intro">
+
+<div class="photo photo-left">
+<img src="photo1.jpg" alt="">
+</div>
+
+<div class="photo photo-right">
+<img src="photo2.jpg" alt="">
+</div>
+
+<div class="rose one">
+🌹
+</div>
+
+<div class="rose two">
+🌸
+</div>
+
+<article class="paper intro-card">
+
+<h1 class="script">
+Happy<br>
+Anniversary, My Love
+</h1>
+
+<div class="date">
+21 • 09 • 2026
+</div>
+
+<p class="intro-message">
+Hari ini bukan cuma tentang cinta, tapi juga tentang perjalanan kita bersama.
+<br><br>
+Hari ini adalah tentang dua seseorang
+yang berhasil membuat dunia terasa
+sedikit lebih indah hanya dengan hadir.
+<br><br>
+
+And that someone is you. ♡
+</p>
+
+</article>
+
+<button
+    class="romantic-button"
+    data-go="3"
+>
+    tap for your surprise ♡
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 3
+===================================================== -->
+
+<section class="page" id="page3">
+
+<div class="page-inner choice-page">
+
+<h1 class="title script choice-title">
+Choose Your Surprise
+</h1>
+
+<div class="choices">
+
+<button class="choice" data-go="4">
+
+<div class="choice-icon">
+📸
+</div>
+
+<div class="choice-label script">
+Journey
+</div>
+
+</button>
+
+
+<button class="choice" data-go="5">
+
+<div class="choice-icon">
+💌
+</div>
+
+<div class="choice-label script">
+Moment
+</div>
+
+</button>
+
+
+<button class="choice" data-go="6">
+
+<div class="choice-icon">
+🎵
+</div>
+
+<div class="choice-label script">
+Playlist
+</div>
+
+</button>
+
+
+<button class="choice" data-go="7">
+
+<div class="choice-icon">
+🎁
+</div>
+
+<div class="choice-label script">
+Gift
+</div>
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 4 JOURNEY
+===================================================== -->
+
+<section class="page" id="page4">
+
+<div class="page-inner journey">
+
+<button class="back" data-go="3">
+← back
+</button>
+
+<h1 class="journey-title script">
+Our Little Journey
+</h1>
+
+<div class="journey-photo j1">
+<img src="journey1.jpg">
+</div>
+
+<div class="journey-photo j2">
+<img src="journey2.jpg">
+</div>
+
+<div class="journey-photo j3">
+<img src="journey3.jpg">
+</div>
+
+<div class="journey-photo j4">
+<img src="journey4.jpg">
+</div>
+
+<div class="journey-photo j5">
+<img src="journey5.jpg">
+</div>
+
+<div class="journey-photo j6">
+<img src="journey6.jpg">
+</div>
+
+<div class="journey-photo j7">
+<img src="journey7.jpg">
+</div>
+
+<div class="journey-note">
+Every picture holds a little piece of my heart. ♡
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 5 MOMENT
+===================================================== -->
+
+
+<!-- Premium timeline launcher -->
+<div style="text-align:center;margin:18px auto 0"><button class="wow-enter" data-wow-open="timeline">Enter cinematic timeline ✦</button></div>
+<section class="page" id="page5">
+
+<div class="page-inner moment">
+
+<button class="back" data-go="3">
+← back
+</button>
+
+<h1 class="moment-title script">
+For You,
+</h1>
+
+<article class="paper letter">
+
+<h2>
+My Love,
+</h2>
+
+<p id="loveLetter"></p>
+
+</article>
+
+<div class="moment-photo">
+<img src="moment.jpg">
+</div>
+
+<button
+    class="music-button"
+    id="musicButton"
+>
+
+<div class="vinyl"></div>
+
+<span>
+▶ Play our song
+</span>
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 6 PLAYLIST
+===================================================== -->
+
+<section class="page" id="page6">
+
+<div class="page-inner playlist">
+
+<button class="back" data-go="3">
+← back
+</button>
+
+<div class="player">
+
+<div class="player-header">
+    ♡ our little playlist
+</div>
+
+<div class="album">
+
+<div class="album-title">
+I'll Keep You Safe
+</div>
+
+<div class="album-subtitle">
+Shiloh Dinasty
+</div>
+
+<button
+    class="play-button"
+    id="playlistPlay"
+>
+▶
+</button>
+
+</div>
+
+</div>
+
+
+<div class="playlist-photo pp1">
+<img src="playlist1.jpg">
+</div>
+
+<div class="playlist-photo pp2">
+<img src="playlist2.jpg">
+</div>
+
+<div class="playlist-photo pp3">
+<img src="playlist3.jpg">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 7 GIFT
+===================================================== -->
+
+<section class="page gift" id="page7">
+
+<div class="page-inner gift">
+
+<button class="back" data-go="3">
+← back
+</button>
+
+<h1 class="title script">
+One Last Thing...
+</h1>
+
+<div
+    class="envelope gift-envelope"
+    id="giftEnvelope"
+>
+
+<div class="envelope-body"></div>
+
+<div class="flap"></div>
+
+<div class="seal"></div>
+
+</div>
+
+
+<article class="paper gift-message">
+
+<h2>
+I Love You Baby Naa, Sayang ♡
+</h2>
+
+<p>
+
+Kalau aku bisa memberikan satu hadiah
+yang benar-benar sempurna untukmu,
+
+aku ingin memberikanmu kemampuan
+untuk melihat dirimu dari mataku.
+
+Supaya kamu bisa melihat
+betapa berharganya kamu.
+
+Betapa cantiknya senyummu.
+
+Betapa hangatnya kehadiranmu.
+
+Dan betapa bersyukurnya aku
+karena semesta pernah mempertemukan kita.
+
+Semoga tahun ini membawa
+lebih banyak tawa,
+lebih banyak mimpi,
+lebih banyak perjalanan,
+
+dan semoga...
+
+aku masih boleh ada
+di banyak cerita berikutnya. ♡
+
+</p>
+
+<br>
+
+<strong>
+I love you.
+Today, tomorrow,
+and all the days after that.
+</strong>
+
+</article>
+
+
+<div class="confetti" id="confetti"></div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+AUDIO
+===================================================== -->
+
+
+<!-- WOW PREMIUM TIMELINE PAGE -->
+<section class="page" id="page-wow-timeline" data-wow-page="timeline">
+  <div class="page-content" style="overflow:auto;height:100%;padding:70px 20px 90px">
+    <div class="wow-section-title">Our Story, In Little Chapters</div>
+    <div class="wow-scroll-hint">SCROLL TO TRAVEL THROUGH US ↓</div>
+
+    <div class="wow-timeline">
+      <article class="wow-event">
+        <div class="wow-event-card">
+          <div class="wow-event-date">CHAPTER 01</div>
+          <div class="wow-event-title">The Beginning</div>
+          <div class="wow-event-copy">Some stories begin quietly. Ours became a place I never wanted to leave.</div>
+        </div>
+      </article>
+      <article class="wow-event">
+        <div class="wow-event-card">
+          <div class="wow-event-date">CHAPTER 02</div>
+          <div class="wow-event-title">Little Moments</div>
+          <div class="wow-event-copy">The laughs, the random talks, the tiny memories that somehow became everything.</div>
+        </div>
+      </article>
+      <article class="wow-event">
+        <div class="wow-event-card">
+          <div class="wow-event-date">CHAPTER 03</div>
+          <div class="wow-event-title">Growing Together</div>
+          <div class="wow-event-copy">We changed, learned, stayed, and kept choosing each other through every season.</div>
+        </div>
+      </article>
+      <article class="wow-event">
+        <div class="wow-event-card">
+          <div class="wow-event-date">CHAPTER 04</div>
+          <div class="wow-event-title">My Favorite Place</div>
+          <div class="wow-event-copy">It was never really about the place. It was about who I was with.</div>
+        </div>
+      </article>
+      <article class="wow-event">
+        <div class="wow-event-card">
+          <div class="wow-event-date">CHAPTER 05</div>
+          <div class="wow-event-title">Still Us</div>
+          <div class="wow-event-copy">And here we are—another page written, another memory worth keeping forever.</div>
+        </div>
+      </article>
+    </div>
+
+    <div class="wow-photo-stage" id="wowPhotoStage">
+      <div class="wow-photo-3d" id="wowPhoto3D">
+        <img src="moment.jpg" alt="Our favorite moment">
+      </div>
+    </div>
+
+    <div style="text-align:center;margin:30px 0 10px">
+      <button class="back" data-wow-back>← Back to surprises</button>
+    </div>
+  </div>
+</section>
+
+<!-- WOW PREMIUM ENDING -->
+<section class="page" id="page-wow-ending" data-wow-page="ending">
+  <div class="wow-ending">
+    <div class="wow-ending-inner">
+      <div class="wow-ending-small">AND IF YOU EVER FORGET...</div>
+      <div class="wow-ending-title">I Love You</div>
+      <div class="wow-ending-line"></div>
+      <div class="wow-ending-copy">
+        Thank you for every smile, every little moment, every memory.
+        If I could choose my favorite chapter again, I would still choose us.
+        Today, tomorrow, and in every beautiful page that comes after this.
+      </div>
+      <button class="wow-replay" id="wowReplay">Replay our story ♥</button>
+    </div>
+  </div>
+</section>
+
+<audio
+    id="backgroundMusic"
+    src="music.mp3"
+    loop
+></audio>
+
+
+<script>
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+let currentPage = 1;
+
+function showPage(number){
+
+    const oldPage =
+        document.getElementById(
+            "page" + currentPage
+        );
+
+    const newPage =
+        document.getElementById(
+            "page" + number
+        );
+
+    if(!newPage) return;
+
+    oldPage.classList.remove("active");
+
+    setTimeout(()=>{
+
+        newPage.classList.add("active");
+
+    },100);
+
+    currentPage = number;
+
+    if(number === 5){
+
+        startTyping();
+
+    }
+
+}
+
+
+/* =========================================================
+   NAV BUTTONS
+========================================================= */
+
+document
+.querySelectorAll("[data-go]")
+.forEach(button=>{
+
+    button.addEventListener(
+        "click",
+        ()=>{
+
+            showPage(
+                Number(button.dataset.go)
+            );
+
+            heartBurst(
+                window.innerWidth/2,
+                window.innerHeight/2
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   OPEN FIRST ENVELOPE
+========================================================= */
+
+const openingEnvelope =
+    document.getElementById(
+        "openingEnvelope"
+    );
+
+openingEnvelope.addEventListener(
+    "click",
+    ()=>{
+
+        if(
+            openingEnvelope.classList.contains("open")
+        ) return;
+
+        openingEnvelope.classList.add("open");
+
+        heartBurst(
+            window.innerWidth/2,
+            window.innerHeight/2
+        );
+
+        setTimeout(
+            ()=>showPage(2),
+            1000
+        );
+
+    }
+);
+
+
+/* =========================================================
+   LOVE LETTER TYPING
+========================================================= */
+
+const letterText = `Selamat Anniversary, Sayang.
+Semoga semua hal baik
+yang selama ini kamu doakan
+pelan-pelan menemukan jalan menuju kamu.
+And if someday you forget how special you are,
+please remember...
+there is someone who looks at you
+and feels incredibly lucky just because you exist.
+
+I love you. ♡`;
+
+let typingStarted = false;
+
+function startTyping(){
+
+    if(typingStarted) return;
+
+    typingStarted = true;
+
+    const element =
+        document.getElementById(
+            "loveLetter"
+        );
+
+    let index = 0;
+
+    function type(){
+
+        if(index < letterText.length){
+
+            element.textContent +=
+                letterText[index];
+
+            index++;
+
+            setTimeout(
+                type,
+                letterText[index-1] === "\n"
+                    ? 350
+                    : 25
+            );
+
+        }
+
+    }
+
+    type();
+
+}
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+const music =
+    document.getElementById(
+        "backgroundMusic"
+    );
+
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
+
+const playlistPlay =
+    document.getElementById(
+        "playlistPlay"
+    );
+
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play()
+        .then(()=>{
+
+            musicButton.classList.add(
+                "playing"
+            );
+
+            musicButton.querySelector(
+                "span"
+            ).textContent =
+                "❚❚ Pause our song";
+
+        })
+        .catch(error=>{
+
+            alert(
+                "Pastikan file music.mp3 ada di folder website."
+            );
+
+        });
+
+    }else{
+
+        music.pause();
+
+        musicButton.classList.remove(
+            "playing"
+        );
+
+        musicButton.querySelector(
+            "span"
+        ).textContent =
+            "▶ Play our song";
+
+    }
+
+}
+
+
+musicButton.addEventListener(
+    "click",
+    toggleMusic
+);
+
+playlistPlay.addEventListener(
+    "click",
+    toggleMusic
+);
+
+
+/* =========================================================
+   GIFT
+========================================================= */
+
+const giftEnvelope =
+    document.getElementById(
+        "giftEnvelope"
+    );
+
+const giftPage =
+    document.getElementById(
+        "page7"
+    );
+
+giftEnvelope.addEventListener(
+    "click",
+    ()=>{
+
+        giftEnvelope.classList.add(
+            "open"
+        );
+
+        giftPage.classList.add(
+            "revealed"
+        );
+
+        createConfetti();
+
+        for(
+            let i=0;
+            i<15;
+            i++
+        ){
+
+            setTimeout(
+                ()=>{
+
+                    heartBurst(
+                        Math.random() *
+                            window.innerWidth,
+
+                        Math.random() *
+                            window.innerHeight
+                    );
+
+                },
+                i*100
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+function createConfetti(){
+
+    const container =
+        document.getElementById(
+            "confetti"
+        );
+
+    container.innerHTML = "";
+
+    for(
+        let i=0;
+        i<80;
+        i++
+    ){
+
+        const piece =
+            document.createElement(
+                "span"
+            );
+
+        piece.style.left =
+            Math.random()*100 + "%";
+
+        piece.style.top =
+            (-Math.random()*30) + "%";
+
+        piece.style.animationDelay =
+            Math.random()*2 + "s";
+
+        piece.style.animationDuration =
+            (3+Math.random()*3) + "s";
+
+        piece.style.transform =
+            `rotate(${Math.random()*360}deg)`;
+
+        container.appendChild(
+            piece
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   HEART BURST
+========================================================= */
+
+function heartBurst(x,y){
+
+    const hearts =
+        [
+            "♥",
+            "♡",
+            "❤",
+            "💕",
+            "💗"
+        ];
+
+    for(
+        let i=0;
+        i<7;
+        i++
+    ){
+
+        const heart =
+            document.createElement(
+                "div"
+            );
+
+        heart.className =
+            "burst";
+
+        heart.textContent =
+            hearts[
+                Math.floor(
+                    Math.random() *
+                    hearts.length
+                )
+            ];
+
+        heart.style.left =
+            x + "px";
+
+        heart.style.top =
+            y + "px";
+
+        heart.style.setProperty(
+            "--x",
+            ((Math.random()-.5)*180)
+            + "px"
+        );
+
+        heart.style.setProperty(
+            "--y",
+            ((Math.random()-.5)*180)
+            + "px"
+        );
+
+        document.body.appendChild(
+            heart
+        );
+
+        setTimeout(
+            ()=>{
+                heart.remove();
+            },
+            1000
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   PHOTO CLICK EFFECT
+========================================================= */
+
+document
+.querySelectorAll(
+    ".journey-photo"
+)
+.forEach(photo=>{
+
+    photo.addEventListener(
+        "click",
+        event=>{
+
+            heartBurst(
+                event.clientX,
+                event.clientY
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   CLICK ANYWHERE HEART
+========================================================= */
+
+document.addEventListener(
+    "click",
+    event=>{
+
+        if(
+            event.target.closest(
+                "button,.envelope"
+            )
+        ) return;
+
+        heartBurst(
+            event.clientX,
+            event.clientY
+        );
+
+    }
+);
+
+
+/* =========================================================
+   KEYBOARD NAVIGATION
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event=>{
+
+        if(event.key === "Escape"){
+
+            showPage(3);
+
+        }
+
+    }
+);
+
+</script>
+
+
+<script id="wow-premium-js">
+(() => {
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+
+  /* Cinematic opening */
+  const cinema = $("#wowCinema");
+  const enter = $("#wowEnter");
+  const closeCinema = () => {
+    cinema?.classList.add("hide");
+    document.body.classList.add("wow-started");
+    setTimeout(() => cinema?.remove(), 1600);
+  };
+  enter?.addEventListener("click", closeCinema);
+
+  /* Petal rain */
+  const petalBox = $("#wowPetals");
+  if (petalBox) {
+    const count = innerWidth < 700 ? 22 : 42;
+    for (let i=0;i<count;i++){
+      const p=document.createElement("span");
+      p.className="wow-petal";
+      p.style.left=(Math.random()*100)+"%";
+      p.style.animationDuration=(7+Math.random()*10)+"s";
+      p.style.animationDelay=(-Math.random()*14)+"s";
+      p.style.transform=`scale(${.55+Math.random()*.8})`;
+      petalBox.appendChild(p);
+    }
+  }
+
+  /* Heart cursor + trail */
+  const cursor=$("#wowCursor"), dot=$("#wowCursorDot");
+  let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my,lastTrail=0;
+  addEventListener("pointermove",e=>{
+    mx=e.clientX; my=e.clientY;
+    if(innerWidth>700 && performance.now()-lastTrail>55){
+      lastTrail=performance.now();
+      const h=document.createElement("span");
+      h.className="wow-trail-heart";h.textContent="♥";
+      h.style.left=mx+"px";h.style.top=my+"px";
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),900);
+    }
+  },{passive:true});
+  function cursorLoop(){
+    cx+=(mx-cx)*.18;cy+=(my-cy)*.18;
+    if(cursor){cursor.style.left=cx+"px";cursor.style.top=cy+"px"}
+    if(dot){dot.style.left=mx+"px";dot.style.top=my+"px"}
+    requestAnimationFrame(cursorLoop);
+  }
+  cursorLoop();
+
+  /* Sparkles on clicks */
+  addEventListener("click",e=>{
+    for(let i=0;i<5;i++){
+      const s=document.createElement("span");
+      s.className="wow-spark";s.style.left=e.clientX+(Math.random()*24-12)+"px";
+      s.style.top=e.clientY+(Math.random()*24-12)+"px";
+      document.body.appendChild(s);setTimeout(()=>s.remove(),850);
+    }
+  });
+
+  /* 3D photo tilt */
+  const photo=$("#wowPhoto3D");
+  const stage=$("#wowPhotoStage");
+  stage?.addEventListener("pointermove",e=>{
+    if(innerWidth<=700)return;
+    const r=stage.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    photo.style.transform=`rotateX(${(-y*10).toFixed(2)}deg) rotateY(${(x*12).toFixed(2)}deg) scale(1.015)`;
+  });
+  stage?.addEventListener("pointerleave",()=>photo.style.transform="rotateX(0) rotateY(0) scale(1)");
+
+  /* Timeline launcher: uses existing showPage if available */
+  const openTimeline=()=>{
+    if(typeof window.showPage==="function"){
+      window.showPage("wow-timeline");
+    }else{
+      $$(".page").forEach(p=>p.classList.remove("active"));
+      $("#page-wow-timeline")?.classList.add("active");
+    }
+    closeCinema();
+  };
+  $$('[data-wow-open="timeline"]').forEach(b=>b.addEventListener("click",openTimeline));
+
+  /* Timeline back */
+  $$("[data-wow-back]").forEach(b=>b.addEventListener("click",()=>{
+    if(typeof window.goBack==="function") window.goBack();
+    else if(typeof window.showPage==="function") window.showPage("3");
+  }));
+
+  /* Dramatic ending: expose helper and launch after final gift reveal when possible */
+  window.WOW_openEnding=()=>{
+    if(typeof window.showPage==="function") window.showPage("wow-ending");
+    else {
+      $$(".page").forEach(p=>p.classList.remove("active"));
+      $("#page-wow-ending")?.classList.add("active");
+    }
+    document.body.style.overflow="hidden";
+    wowFinale();
+  };
+
+  function wowFinale(){
+    const burst=()=> {
+      for(let i=0;i<70;i++){
+        const h=document.createElement("span");
+        h.className="wow-trail-heart";
+        h.textContent=Math.random()>.22?"♥":"✦";
+        h.style.left="50vw";h.style.top="50vh";
+        h.style.fontSize=(9+Math.random()*22)+"px";
+        h.style.color=`hsl(${320+Math.random()*35},100%,${70+Math.random()*20}%)`;
+        const a=Math.random()*Math.PI*2,d=70+Math.random()*420;
+        h.animate(
+          [{transform:"translate(-50%,-50%) scale(.2)",opacity:1},
+           {transform:`translate(calc(-50% + ${Math.cos(a)*d}px),calc(-50% + ${Math.sin(a)*d}px)) scale(1)`,opacity:0}],
+          {duration:1100+Math.random()*1000,easing:"cubic-bezier(.1,.8,.2,1)"}
+        );
+        document.body.appendChild(h);setTimeout(()=>h.remove(),2200);
+      }
+    };
+    setTimeout(burst,550);
+  }
+
+  $("#wowReplay")?.addEventListener("click",()=>{
+    location.reload();
+  });
+
+  /* Scroll progress for any scrollable page */
+  addEventListener("scroll",()=>{
+    const h=document.documentElement;
+    const max=h.scrollHeight-h.clientHeight;
+    $("#wowProgress").style.width=(max>0?(scrollY/max)*100:0)+"%";
+  },{passive:true});
+
+  /* Let original code trigger the dramatic ending after gift reveal if the hook exists. */
+  const gift = document.querySelector(".gift");
+  gift?.addEventListener("click",()=>{
+    setTimeout(()=>{
+      const visibleGift = document.querySelector("#page-7.active, [data-page='7'].active");
+      if(visibleGift) window.WOW_openEnding();
+    },4200);
+  });
+})();
+</script>
+
+</body>
+</html>
+```
